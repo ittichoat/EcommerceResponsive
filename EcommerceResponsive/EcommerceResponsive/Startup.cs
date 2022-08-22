@@ -1,3 +1,5 @@
+using EcommerceResponsive.Service;
+using EcommerceResponsive.Service.Interface;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,6 +31,9 @@ namespace EcommerceResponsive
         {
 
             services.AddControllers();
+            //AddScoped Service
+            services.AddScoped<ICategoryService, CategoryService>();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "EcommerceResponsive", Version = "v1" });
