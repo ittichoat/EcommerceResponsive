@@ -15,8 +15,17 @@ namespace EcommerceResponsive.Models
         public int nID { get; set; }
         public string sName { get; set; }
         public string sDescription { get; set; }
-        public int nPrice { get; set; }
-        public string sPrice { get { return nPrice.ToString("N0"); } }
+        public decimal nPrice { get; set; }
+        public string sPrice { get { return nPrice.ToString("N"); } }
         public string sImageUrl { get; set; }
+    }
+    public class ProductListModel
+    {
+        public int id { get; set; }
+        public string title { get; set; }
+        public decimal price { get; set; }
+        public string description { get; set; }
+        public string image { get; set; }
+        public string category { get; set; }
     }
 }

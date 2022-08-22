@@ -23,11 +23,11 @@ namespace EcommerceResponsive.Controllers
 
         [HttpPost]
         [Route("CategoryList")]
-        public ResponseModel CategoryList(CategoryModel req)
+        public async Task<IActionResult> CategoryList(CategoryModel req)
         {
             var service = _service.GetService<ICategoryService>();
-            var res = service.CategoryList(req);
-            return res;
+            var res = await service.CategoryList(req);
+            return Ok(res);
         }
     }
 }

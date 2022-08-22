@@ -8,6 +8,6 @@ namespace EcommerceResponsive.Service.Interface
 {
     public interface ICategoryService
     {
-        ResponseModel CategoryList(CategoryModel req);
+        Task<ResponseModel> CategoryList(CategoryModel req);
     }
 }
