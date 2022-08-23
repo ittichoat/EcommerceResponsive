@@ -24,6 +24,7 @@
         </div>
       </b-card-group>
     </div>
+    <div class="loader" v-if="loading"></div>
   </div>
 </template>
 <script>
@@ -33,6 +34,7 @@ export default {
   components: { CategoryBox },
   data() {
     return {
+      loading: false,
       sSearch: "",
       baseURL: "https://localhost:7174",
       categories: [],
@@ -40,28 +42,22 @@ export default {
   },
   methods: {
     async getCategories() {
-      const data = { sSearch: this.sSearch };
-      const headers = { 
+      this.loading = true
+      const data = { sSearch: this.sSearch }
+      const headers = {
         "Content-Type": "application/json",
-        "Allow-Control-Allow-Origin": "*"
       };
-      await this.$axios.$post(`${this.baseURL}/api/Category/CategoryList/`, JSON.stringify(data), {headers})
+      await this.$axios.$post(`${this.baseURL}/api/Category/CategoryList/`, JSON.stringify(data), { headers })
         .then((res) => {
           //console.log("data", res.data);
           this.categories = res.data
         })
-        .catch((err) => console.log(err));
+        .catch((err) =>
+          console.log(err))
+        .finally(() => {
+          this.loading = false
+        });
     },
-    // async getCategories() {
-    //   const data = { sSearch: this.sSearch };
-    //   const requestOptions = {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify(data)
-    //   };
-    //   const response = await fetch(`${this.baseURL}/api/Category/CategoryList/`, requestOptions);
-    //   this.categories  = await response.json().data;
-    // },
   },
   mounted() {
     this.getCategories();
@@ -69,4 +65,25 @@ export default {
 };
 </script>
 <style scoped>
+#axiosForm {
+  /* Components Root Element ID */
+  position: relative;
+}
+
+.loader {
+  /* Loader Div Class */
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  width: 100%;
+  height: 100%;
+  background-color: #eceaea;
+  background-image: url("~@/assets/ajax-loader.gif");
+  background-size: 50px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 10000000;
+  opacity: 0.4;
+  filter: alpha(opacity=40);
+}
 </style>

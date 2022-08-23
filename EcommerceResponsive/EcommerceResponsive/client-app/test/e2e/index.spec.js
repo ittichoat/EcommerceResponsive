@@ -21,7 +21,7 @@ before(async () => {
 // Example of testing only generated html
 test('Route / exits and render HTML', async (t) => {
   const { html } = await nuxt.renderRoute('/', {})
-  t.true(html.includes('Documentation'))
+  t.true(html.includes('#nuxt-loading'))
 })
 
 // Close server and ask nuxt to stop listening to file changes
