@@ -21,8 +21,7 @@ namespace EcommerceResponsive.Controllers
             this._service = serviceProvider;
         }
 
-        [HttpPost]
-        [Route("CategoryList")]
+        [HttpPost("CategoryList")]
         public async Task<IActionResult> CategoryList(CategoryModel req)
         {
             var service = _service.GetService<ICategoryService>();

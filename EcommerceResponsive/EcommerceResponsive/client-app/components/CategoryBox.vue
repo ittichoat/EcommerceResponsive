@@ -3,7 +3,7 @@
         <b-img class="card-img-top embed-responsive-item" v-bind:src="category.sImageUrl" rounded="top"
             alt="Top-rounded image" />
         <h5 class="card-title">{{ category.sName }}</h5>
-        <b-card-text class="small text-muted">
+        <b-card-text class="small text-muted " style="max-height: 20rem;">
             {{ category.sDescription }}
         </b-card-text>
         <b-card-text>

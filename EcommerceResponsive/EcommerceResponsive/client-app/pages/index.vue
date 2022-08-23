@@ -27,7 +27,6 @@
   </div>
 </template>
 <script>
-const axios = require("axios");
 import CategoryBox from "../components/CategoryBox.vue";
 export default {
   name: "Category",
@@ -35,21 +34,34 @@ export default {
   data() {
     return {
       sSearch: "",
-      baseURL: "https://localhost:44359",
+      baseURL: "https://localhost:7174",
       categories: [],
     };
   },
   methods: {
     async getCategories() {
       const data = { sSearch: this.sSearch };
-      await axios
-        .post(`${this.baseURL}/api/Category/CategoryList/`, data)
+      const headers = { 
+        "Content-Type": "application/json",
+        "Allow-Control-Allow-Origin": "*"
+      };
+      await this.$axios.$post(`${this.baseURL}/api/Category/CategoryList/`, JSON.stringify(data), {headers})
         .then((res) => {
-          console.log("data", res.data);
-          this.categories = res.data.data
+          //console.log("data", res.data);
+          this.categories = res.data
         })
         .catch((err) => console.log(err));
     },
+    // async getCategories() {
+    //   const data = { sSearch: this.sSearch };
+    //   const requestOptions = {
+    //     method: "POST",
+    //     headers: { "Content-Type": "application/json" },
+    //     body: JSON.stringify(data)
+    //   };
+    //   const response = await fetch(`${this.baseURL}/api/Category/CategoryList/`, requestOptions);
+    //   this.categories  = await response.json().data;
+    // },
   },
   mounted() {
     this.getCategories();

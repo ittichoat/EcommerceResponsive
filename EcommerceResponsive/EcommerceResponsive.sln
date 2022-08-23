@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.31005.135
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32811.315
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceResponsive", "EcommerceResponsive\EcommerceResponsive.csproj", "{5802C6BB-C8BF-4A46-97B0-D4860E768DA7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceResponsive", "EcommerceResponsive\EcommerceResponsive.csproj", "{AF972F59-3C3B-47CB-8806-20785D65141B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{5802C6BB-C8BF-4A46-97B0-D4860E768DA7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5802C6BB-C8BF-4A46-97B0-D4860E768DA7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5802C6BB-C8BF-4A46-97B0-D4860E768DA7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5802C6BB-C8BF-4A46-97B0-D4860E768DA7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF972F59-3C3B-47CB-8806-20785D65141B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF972F59-3C3B-47CB-8806-20785D65141B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF972F59-3C3B-47CB-8806-20785D65141B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF972F59-3C3B-47CB-8806-20785D65141B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {BD289D8E-473F-4F34-A1B9-397B6D8F892D}
+		SolutionGuid = {F4F152DA-5DEF-4C48-A0E1-22A485659C98}
 	EndGlobalSection
 EndGlobal
