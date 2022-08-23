@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XSyEHuN3I+tH06SOmK3SVWtgQALe1VUYfkay9v7bFrh2cI4V91nMKyufFlOE7lF/P8O5mceMQrz4qJk0yn+Dsw==",
+  "dgSpecHash": "Z5Xy8aXQAWP0Y3/P6wh0PgRkYBjil9zUfCiK8iaZ9Nm3LI/W/xzygGv7QzULnc4dSzxzC7uCIl3ghhcy2sXsQQ==",
   "success": true,
-  "projectFilePath": "D:\\Project\\EcommerceResponsive\\EcommerceResponsive\\EcommerceResponsive.csproj",
+  "projectFilePath": "D:\\github\\2022\\EcommerceResponsive\\EcommerceResponsive\\EcommerceResponsive\\EcommerceResponsive.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\sengr\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\sengr\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
