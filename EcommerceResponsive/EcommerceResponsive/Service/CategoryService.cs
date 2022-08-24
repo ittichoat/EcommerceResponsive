@@ -1,15 +1,5 @@
 ﻿using EcommerceResponsive.Models;
 using EcommerceResponsive.Service.Interface;
-using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Globalization;
-using Microsoft.EntityFrameworkCore;
-using System.Net;
-using System.IO;
-using System.Net.Http;
 using Newtonsoft.Json;
 using Microsoft.Extensions.Caching.Memory;
 
@@ -36,15 +26,19 @@ namespace EcommerceResponsive.Service
                 {
                     sSearch = req.sSearch.Trim().Replace(" ", String.Empty).ToLower();
                 }
+                //Check Key Cache
                 if (_memoryCache.TryGetValue(sSearch, out List<CategoryListModel> cacheValue))
                 {
                     lstdata = cacheValue;
                 }
                 else {
+                    //Call Api Get Data Product
                     string url = "https://fakestoreapi.com/products";
-                    HttpResponseMessage response = client.GetAsync(url).Result;
+                    HttpResponseMessage response = await client.GetAsync(url);
                     string str = await response.Content.ReadAsStringAsync();
+                    //Convert Json to Model
                     List<ProductListModel> lstProduct = JsonConvert.DeserializeObject<List<ProductListModel>>(str.ToString());
+                    //Mapping Data
                     lstdata = lstProduct.Select(s => new CategoryListModel
                     {
                         nID = s.id,
@@ -53,7 +47,9 @@ namespace EcommerceResponsive.Service
                         nPrice = s.price,
                         sImageUrl = s.image
                     }).ToList();
+                    //Filter Data
                     lstdata = lstdata.Where(w => w.sName.Trim().Replace(" ", String.Empty).ToLower().Contains(sSearch)).ToList();
+                    //Set Memory Cache
                     var cacheEntryOptions = new MemoryCacheEntryOptions().SetSlidingExpiration(TimeSpan.FromSeconds(60));
                     _memoryCache.Set(sSearch, lstdata, cacheEntryOptions);
                 }
